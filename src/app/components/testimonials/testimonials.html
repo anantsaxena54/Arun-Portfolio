@@ -1,0 +1,101 @@
+<!-- Full-Width Marquee Ticker -->
+<div class="marquee-container">
+  <div class="marquee-content">
+    <div class="marquee-item">
+      <span>FILM EDITING</span> <span class="marquee-dot">•</span>
+      <span>COLOR GRADING</span> <span class="marquee-dot">•</span>
+      <span>SOUND DESIGN</span> <span class="marquee-dot">•</span>
+      <span>COMMERCIAL CUTS</span> <span class="marquee-dot">•</span>
+      <span>MOTION GRAPHICS</span> <span class="marquee-dot">•</span>
+    </div>
+    <div class="marquee-item">
+      <span>FILM EDITING</span> <span class="marquee-dot">•</span>
+      <span>COLOR GRADING</span> <span class="marquee-dot">•</span>
+      <span>SOUND DESIGN</span> <span class="marquee-dot">•</span>
+      <span>COMMERCIAL CUTS</span> <span class="marquee-dot">•</span>
+      <span>MOTION GRAPHICS</span> <span class="marquee-dot">•</span>
+    </div>
+    <div class="marquee-item">
+      <span>FILM EDITING</span> <span class="marquee-dot">•</span>
+      <span>COLOR GRADING</span> <span class="marquee-dot">•</span>
+      <span>SOUND DESIGN</span> <span class="marquee-dot">•</span>
+      <span>COMMERCIAL CUTS</span> <span class="marquee-dot">•</span>
+      <span>MOTION GRAPHICS</span> <span class="marquee-dot">•</span>
+    </div>
+    <div class="marquee-item">
+      <span>FILM EDITING</span> <span class="marquee-dot">•</span>
+      <span>COLOR GRADING</span> <span class="marquee-dot">•</span>
+      <span>SOUND DESIGN</span> <span class="marquee-dot">•</span>
+      <span>COMMERCIAL CUTS</span> <span class="marquee-dot">•</span>
+      <span>MOTION GRAPHICS</span> <span class="marquee-dot">•</span>
+    </div>
+  </div>
+</div>
+
+<!-- About Section -->
+<section id="about" class="about-section">
+  <div class="container about-grid">
+    <!-- Left Column: B&W Portrait -->
+    <div class="portrait-column">
+      <img src="assets/images/hero_editing_suite.jpg" alt="Arun Video Editor" class="portrait-img">
+    </div>
+
+    <!-- Center Column: Bio Text -->
+    <div class="bio-column">
+      <h2 class="about-title">ABOUT ARUN</h2>
+      
+      <p class="bio-paragraph">
+        Arun is a Mumbai and international based senior video editor, colorist, and visual storyteller. On completing his film production studies, he pursued specialized masterclasses in Cinematic Editing and Color Science from DaVinci Resolve Academy.
+      </p>
+      
+      <p class="bio-paragraph">
+        He has worked with renowned production houses, directors, and top-tier global creators. He has contributed as Lead Commercial Editor on high-impact brand campaigns and commercial films across Asia &amp; Europe.
+      </p>
+
+      <p class="bio-paragraph">
+        Arun has been independently editing since 2020 and has cut more than 100 commercials and music films for global brands including Netflix, Tata, Amazon, ICICI, Starbucks, Instagram &amp; Meta to name a few.
+      </p>
+    </div>
+
+    <!-- Right Column: Expertise List -->
+    <div class="expertise-column">
+      <h3 class="expertise-title">EXPERTISE</h3>
+      <ul class="expertise-list">
+        @for (item of expertiseList; track item) {
+          <li>— {{ item }}</li>
+        }
+      </ul>
+    </div>
+  </div>
+
+  <!-- Brand Logos Marquee Strip -->
+  <div class="brands-strip-wrapper">
+    <div class="brands-marquee">
+      @for (brand of brands; track brand.name + '_1') {
+        <div class="brand-item">
+          <i class="fa-solid {{ brand.icon }}"></i>
+          <span>{{ brand.name }}</span>
+        </div>
+      }
+      @for (brand of brands; track brand.name + '_2') {
+        <div class="brand-item">
+          <i class="fa-solid {{ brand.icon }}"></i>
+          <span>{{ brand.name }}</span>
+        </div>
+      }
+      @for (brand of brands; track brand.name + '_3') {
+        <div class="brand-item">
+          <i class="fa-solid {{ brand.icon }}"></i>
+          <span>{{ brand.name }}</span>
+        </div>
+      }
+      @for (brand of brands; track brand.name + '_4') {
+        <div class="brand-item">
+          <i class="fa-solid {{ brand.icon }}"></i>
+          <span>{{ brand.name }}</span>
+        </div>
+      }
+    </div>
+    <div class="drag-badge">Drag</div>
+  </div>
+</section>

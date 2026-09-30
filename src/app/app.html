@@ -1,0 +1,37 @@
+<div class="app-global-wrapper" [style.background-color]="globalBgColor()">
+  <!-- Fixed Left rotated Email bar (Reference Site style) -->
+  <div class="fixed-left-bar">
+    <a href="mailto:contact@arunedits.in">contact@arunedits.in</a>
+  </div>
+
+  <!-- Fixed Right rotated Scroll Indicator bar (Reference Site style) -->
+  <div class="fixed-right-bar">
+    <span class="scroll-text">scroll</span>
+    <span class="scroll-dot"></span>
+    <span class="scroll-line"></span>
+  </div>
+
+  <!-- Main Top Header Navigation -->
+  <app-navbar></app-navbar>
+
+  <!-- Hero Section -->
+  <app-hero (playReel)="openShowreelModal()"></app-hero>
+
+  <!-- Selected Work Showcase ("PORTFOLIO") -->
+  <app-portfolio (selectProject)="openProjectModal($event)"></app-portfolio>
+
+  <!-- About Arun & Brand Logos Marquee ("ABOUT ARUN") -->
+  <app-testimonials></app-testimonials>
+
+  <!-- Contact Section ("LET'S TALK") -->
+  <app-contact></app-contact>
+
+  <!-- Footer -->
+  <app-footer></app-footer>
+
+  <!-- Video Player Modal Overlay -->
+  <app-video-modal 
+    [project]="activeModalProject()" 
+    (closeModal)="closeModal()">
+  </app-video-modal>
+</div>

@@ -1,0 +1,129 @@
+.about-section {
+  padding: 100px 0 60px;
+  background-color: var(--color-1);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr 0.8fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.portrait-column {
+  width: 100%;
+}
+
+.portrait-img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  filter: grayscale(100%) contrast(1.1);
+  border-radius: 2px;
+}
+
+.bio-column {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.about-title {
+  font-family: var(--font-family-display);
+  font-size: clamp(36px, 5vw, 64px);
+  color: #FFFFFF;
+  margin-bottom: 8px;
+}
+
+.bio-paragraph {
+  font-family: var(--font-family-body);
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.7;
+}
+
+.expertise-column {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-left: 20px;
+}
+
+.expertise-title {
+  font-family: var(--font-family-display);
+  font-size: 24px;
+  color: #FFFFFF;
+  letter-spacing: 0.05em;
+}
+
+.expertise-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.expertise-list li {
+  font-family: var(--font-family-body);
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Brand Logos Strip */
+.brands-strip-wrapper {
+  position: relative;
+  margin-top: 100px;
+  padding: 40px 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.01);
+}
+
+.brands-marquee {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
+.brand-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-family-display);
+  font-size: 26px;
+  color: rgba(255, 255, 255, 0.45);
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
+
+.brand-item:hover {
+  color: #FFFFFF;
+}
+
+.drag-badge {
+  position: absolute;
+  right: 15%;
+  bottom: 24px;
+  background: #FFFFFF;
+  color: #000000;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 1024px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .expertise-column {
+    padding-left: 0;
+  }
+}

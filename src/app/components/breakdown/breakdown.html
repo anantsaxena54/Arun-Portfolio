@@ -1,0 +1,93 @@
+<section id="breakdown" class="breakdown-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="breakdown-title">NLE TIMELINE BREAKDOWN</h2>
+      <p>Explore how video tracks, 3D graphics layers, dialogue isolation, and sound design come together in Premiere Pro &amp; DaVinci Resolve.</p>
+    </div>
+
+    <!-- Timeline Deck Simulator -->
+    <div class="timeline-deck">
+      <div class="timeline-ruler">
+        <div class="ruler-header"><i class="fa-solid fa-play"></i> 00:00:00:00</div>
+        <div class="ruler-ticks">
+          <span>00:00:05</span>
+          <span>00:00:10</span>
+          <span>00:00:15</span>
+          <span>00:00:20</span>
+          <span>00:00:25</span>
+        </div>
+      </div>
+
+      <div class="tracks-container">
+        <div class="track-row">
+          <div class="track-label label-v3"><i class="fa-solid fa-wand-magic-sparkles"></i> V3 Graphics</div>
+          <div class="track-lane">
+            <div class="clip-block" style="left: 56%; width: 32%; background: #FF4D54;" [class.active]="selectedClip()?.id === 'clip-3'" (click)="selectClip(clips[2])">
+              <i class="fa-solid fa-cube"></i> 3D Callout Graphic HUD
+            </div>
+          </div>
+        </div>
+
+        <div class="track-row">
+          <div class="track-label label-v2"><i class="fa-solid fa-video"></i> V2 B-Roll</div>
+          <div class="track-lane">
+            <div class="clip-block" style="left: 32%; width: 40%; background: #5B7BFB;" [class.active]="selectedClip()?.id === 'clip-2'" (click)="selectClip(clips[1])">
+              <i class="fa-solid fa-plane"></i> B-Roll Drone Overhead
+            </div>
+          </div>
+        </div>
+
+        <div class="track-row">
+          <div class="track-label label-v1"><i class="fa-solid fa-clapperboard"></i> V1 A-Roll</div>
+          <div class="track-lane">
+            <div class="clip-block" style="left: 0%; width: 100%; background: #007FFF;" [class.active]="selectedClip()?.id === 'clip-1'" (click)="selectClip(clips[0])">
+              <i class="fa-solid fa-user"></i> A-Roll Main Commercial Cut
+            </div>
+          </div>
+        </div>
+
+        <div class="track-divider">AUDIO TRACKS</div>
+
+        <div class="track-row">
+          <div class="track-label label-a1"><i class="fa-solid fa-microphone"></i> A1 Dialogue</div>
+          <div class="track-lane">
+            <div class="clip-block" style="left: 0%; width: 100%; background: #2E7D32;" [class.active]="selectedClip()?.id === 'clip-4'" (click)="selectClip(clips[3])">
+              <i class="fa-solid fa-waveform"></i> Dialogue Clean Master
+            </div>
+          </div>
+        </div>
+
+        <div class="track-row">
+          <div class="track-label label-a2"><i class="fa-solid fa-music"></i> A2 Music</div>
+          <div class="track-lane">
+            <div class="clip-block" style="left: 0%; width: 100%; background: #F57F17;" [class.active]="selectedClip()?.id === 'clip-5'" (click)="selectClip(clips[4])">
+              <i class="fa-solid fa-sliders"></i> Orchestral Soundtrack
+            </div>
+          </div>
+        </div>
+
+        <div class="track-row">
+          <div class="track-label label-a3"><i class="fa-solid fa-bolt"></i> A3 SFX</div>
+          <div class="track-lane">
+            <div class="clip-block" style="left: 28%; width: 60%; background: #D81B60;" [class.active]="selectedClip()?.id === 'clip-6'" (click)="selectClip(clips[5])">
+              <i class="fa-solid fa-volume-high"></i> Sound FX &amp; Whooshes
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    @if (selectedClip()) {
+      <div class="inspector-card">
+        <div class="inspector-header">
+          <div class="inspector-title">
+            <span class="track-tag" [style.background]="selectedClip()?.color">{{ selectedClip()?.track }}</span>
+            <h3>{{ selectedClip()?.title }}</h3>
+          </div>
+          <span class="vfx-tag"><i class="fa-solid fa-gear"></i> {{ selectedClip()?.vfxTechnique }}</span>
+        </div>
+        <p class="clip-details-text">{{ selectedClip()?.details }}</p>
+      </div>
+    }
+  </div>
+</section>

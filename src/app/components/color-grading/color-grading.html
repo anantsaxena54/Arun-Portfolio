@@ -1,0 +1,49 @@
+<section id="grading" class="grading-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="grading-title">COLOR GRADING SUITE</h2>
+      <p>Drag the slider to compare raw LOG camera footage against Arun's custom cinematic color grade.</p>
+    </div>
+
+    <div class="preset-selector">
+      <button class="preset-btn" [class.active]="activePreset() === 'commercial'" (click)="setPreset('commercial')">
+        <i class="fa-solid fa-car"></i> Commercial Luxury
+      </button>
+      <button class="preset-btn" [class.active]="activePreset() === 'music'" (click)="setPreset('music')">
+        <i class="fa-solid fa-bolt"></i> Cyberpunk Neon
+      </button>
+      <button class="preset-btn" [class.active]="activePreset() === 'documentary'" (click)="setPreset('documentary')">
+        <i class="fa-solid fa-film"></i> Film Print Kodak
+      </button>
+    </div>
+
+    <div class="comparison-container">
+      <div class="comparison-slider">
+        <img [src]="activePreset() === 'commercial' ? 'assets/images/thumb_commercial.jpg' : activePreset() === 'music' ? 'assets/images/thumb_music_video.jpg' : 'assets/images/thumb_documentary.jpg'" alt="Graded Footage" class="image-graded">
+
+        <div class="raw-overlay" [style.clip-path]="'inset(0 ' + (100 - sliderPosition()) + '% 0 0)'">
+          <img [src]="activePreset() === 'commercial' ? 'assets/images/thumb_commercial.jpg' : activePreset() === 'music' ? 'assets/images/thumb_music_video.jpg' : 'assets/images/thumb_documentary.jpg'" alt="Raw LOG Footage" class="image-raw">
+          <span class="badge-label raw-badge">RAW LOG (Flat)</span>
+        </div>
+
+        <span class="badge-label graded-badge">FINAL COLOR GRADE</span>
+
+        <div class="slider-divider" [style.left.%]="sliderPosition()">
+          <div class="handle-button">
+            <i class="fa-solid fa-arrows-left-right"></i>
+          </div>
+        </div>
+
+        <input type="range" min="0" max="100" [value]="sliderPosition()" (input)="onSliderInput($event)" class="range-input" aria-label="Color grading comparison slider">
+      </div>
+
+      <div class="grading-details-card">
+        <div class="detail-header">
+          <h3>{{ presets[activePreset()].title }}</h3>
+          <span class="software-pill">DaVinci Resolve Studio 19</span>
+        </div>
+        <p class="node-description">{{ presets[activePreset()].nodeInfo }}</p>
+      </div>
+    </div>
+  </div>
+</section>

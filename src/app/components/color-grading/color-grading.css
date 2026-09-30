@@ -1,0 +1,143 @@
+.grading-section {
+  padding: 100px 0;
+  background: var(--color-1);
+  border-top: 1px solid var(--color-border);
+}
+
+.grading-title {
+  font-family: var(--font-family-display);
+  font-size: clamp(36px, 6vw, 72px);
+  color: #FFFFFF;
+  margin-bottom: 12px;
+}
+
+.preset-selector {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.preset-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--color-border);
+  color: rgba(255, 255, 255, 0.7);
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-family: var(--font-family-body);
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.preset-btn.active {
+  background: #FFFFFF;
+  color: #000000;
+  border-color: #FFFFFF;
+}
+
+.comparison-container {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.comparison-slider {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  user-select: none;
+}
+
+.image-graded, .image-raw {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-raw {
+  filter: contrast(0.6) saturate(0.3) brightness(1.15);
+}
+
+.raw-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.badge-label {
+  position: absolute;
+  top: 16px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 4px 12px;
+  border-radius: 3px;
+  z-index: 10;
+}
+
+.raw-badge { left: 16px; background: rgba(0,0,0,0.8); color: #AAA; }
+.graded-badge { right: 16px; background: var(--color-2); color: #FFF; }
+
+.slider-divider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #FFF;
+  transform: translateX(-50%);
+  z-index: 15;
+  pointer-events: none;
+}
+
+.handle-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #FFF;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.range-input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: ew-resize;
+  z-index: 20;
+}
+
+.grading-details-card {
+  background: #141416;
+  border: 1px solid var(--color-border);
+  padding: 20px;
+  border-radius: 4px;
+}
+
+.detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.software-pill {
+  font-size: 12px;
+  color: var(--color-gradient-start);
+}

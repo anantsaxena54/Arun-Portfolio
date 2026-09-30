@@ -1,0 +1,86 @@
+<section id="contact" class="contact-section">
+  <div class="container contact-container">
+    <div class="contact-content-grid">
+      <!-- Left Column: Big Headlines -->
+      <div class="contact-text-col">
+        <h2 class="lets-talk-heading">LET'S TALK</h2>
+        <a href="mailto:contact@arunedits.in" class="email-outline-link">CONTACT@ARUNEDITS.IN</a>
+      </div>
+
+      <!-- Right Column: Circle Action Button -->
+      <div class="contact-btn-col">
+        <a href="https://wa.me/917477294570?text=Hi%20Arun,%20I'd%20like%20to%20discuss%20a%20video%20editing%20project!" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="circle-message-btn" 
+           aria-label="Send Me a Message on WhatsApp">
+          <span>SEND ME A<br>MESSAGE</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Bottom Footer Row -->
+    <div class="contact-footer-row">
+      <div class="social-icons-group">
+        <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://vimeo.com" target="_blank" aria-label="Vimeo"><i class="fa-brands fa-vimeo-v"></i></a>
+        <a href="https://imdb.com" target="_blank" aria-label="IMDb"><i class="fa-brands fa-imdb"></i></a>
+        <a href="https://youtube.com" target="_blank" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+
+      <div class="collab-note">
+        <span>✌️ Looking for collaboration for your next project? Do not hesitate to contact me to say hello. 🖐️</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Inquiry Modal -->
+  @if (isModalOpen()) {
+    <div class="inquiry-modal-backdrop" (click)="closeModal()">
+      <div class="inquiry-modal-card" (click)="$event.stopPropagation()">
+        <div class="inquiry-header">
+          <h3>SEND A MESSAGE TO ARUN</h3>
+          <button class="close-btn" (click)="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+
+        @if (!isSubmitted()) {
+          <form (ngSubmit)="onSubmit()" class="inquiry-form">
+            <div class="field-group">
+              <label>Your Name *</label>
+              <input type="text" [(ngModel)]="formData.name" name="name" required placeholder="John Doe">
+            </div>
+
+            <div class="field-group">
+              <label>Email Address *</label>
+              <input type="email" [(ngModel)]="formData.email" name="email" required placeholder="john@agency.com">
+            </div>
+
+            <div class="field-group">
+              <label>Project Type</label>
+              <select [(ngModel)]="formData.projectType" name="projectType">
+                <option value="Commercial">Brand Commercial</option>
+                <option value="Music Video">Music Video</option>
+                <option value="Documentary">YouTube Documentary</option>
+                <option value="Color Grading">DaVinci Color Grading</option>
+              </select>
+            </div>
+
+            <div class="field-group">
+              <label>Project Brief &amp; Footage Links</label>
+              <textarea rows="4" [(ngModel)]="formData.details" name="details" placeholder="Tell Arun about your video timeline, concept, or reference clips..."></textarea>
+            </div>
+
+            <button type="submit" class="submit-modal-btn">SEND MESSAGE</button>
+          </form>
+        } @else {
+          <div class="modal-success-box">
+            <i class="fa-solid fa-circle-check success-check-icon"></i>
+            <h4>Message Sent Successfully!</h4>
+            <p>Arun will review your project brief and get back to <strong>{{ formData.email }}</strong> within 12 hours.</p>
+            <button class="close-modal-btn" (click)="closeModal()">Close Window</button>
+          </div>
+        }
+      </div>
+    </div>
+  }
+</section>

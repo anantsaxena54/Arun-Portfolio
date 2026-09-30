@@ -1,0 +1,29 @@
+<section id="work" class="portfolio-section">
+  <div class="container">
+    <h2 class="portfolio-main-title">PORTFOLIO</h2>
+
+    <!-- Video Work Stack -->
+    <div class="video-stack">
+      @for (project of visibleProjects(); track project.id) {
+        <article class="video-item-card" (click)="onProjectClick(project)">
+          <div class="video-thumbnail-box">
+            <img [src]="project.image" [alt]="project.title" class="video-thumb-img">
+            <div class="video-play-overlay">
+              <div class="play-icon-corner">
+                <i class="fa-solid fa-play"></i>
+              </div>
+            </div>
+          </div>
+          <h3 class="video-item-title">{{ project.title }}</h3>
+        </article>
+      }
+    </div>
+
+    <!-- Load More Action -->
+    @if (hasMoreProjects()) {
+      <div class="load-more-wrapper">
+        <button class="load-more-btn" (click)="loadMore()">Load More</button>
+      </div>
+    }
+  </div>
+</section>

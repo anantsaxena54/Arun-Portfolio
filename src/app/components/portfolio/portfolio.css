@@ -1,0 +1,113 @@
+.portfolio-section {
+  padding: 120px 0 80px;
+  background: transparent;
+}
+
+.portfolio-main-title {
+  font-family: var(--font-family-display);
+  font-size: clamp(60px, 10vw, 140px);
+  text-align: center;
+  margin-bottom: 60px;
+  color: #FFFFFF;
+}
+
+.video-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.video-item-card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  cursor: pointer;
+}
+
+.video-thumbnail-box {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 2px;
+  overflow: hidden;
+  background: #000000;
+}
+
+.video-thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.video-item-card:hover .video-thumb-img {
+  transform: scale(1.03);
+}
+
+.video-play-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: flex-end;
+  padding: 24px;
+  transition: background 0.3s ease;
+}
+
+.video-item-card:hover .video-play-overlay {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.play-icon-corner {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease;
+}
+
+.video-item-card:hover .play-icon-corner {
+  transform: scale(1.15);
+}
+
+.video-item-title {
+  font-family: var(--font-family-body);
+  font-size: 20px;
+  font-weight: 500;
+  color: #FFFFFF;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+.load-more-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 80px;
+}
+
+.load-more-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #FFFFFF;
+  padding: 14px 42px;
+  border-radius: 4px;
+  font-family: var(--font-family-body);
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.load-more-btn:hover {
+  background: #FFFFFF;
+  color: #000000;
+  border-color: #FFFFFF;
+}

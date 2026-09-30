@@ -1,0 +1,23 @@
+@if (project()) {
+  <div class="modal-backdrop" (click)="onClose()">
+    <div class="modal-container" (click)="$event.stopPropagation()">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span class="client-badge">{{ project()?.client }}</span>
+          <h3>{{ project()?.title }}</h3>
+        </div>
+        <button class="close-btn" (click)="onClose()" aria-label="Close modal">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="modal-video-wrapper">
+        <video #videoPlayer [src]="project()?.videoUrl" poster="assets/images/hero_editing_suite.jpg" autoplay controls class="modal-video"></video>
+      </div>
+
+      <div class="modal-body">
+        <p>{{ project()?.description }}</p>
+      </div>
+    </div>
+  </div>
+}
