@@ -228,17 +228,31 @@
   .contact-content-grid {
     grid-template-columns: 1fr;
     gap: 40px;
+    text-align: center;
+  }
+  .contact-text-col {
+    align-items: center;
+    text-align: center;
+  }
+  .lets-talk-heading {
+    text-align: center;
+  }
+  .email-outline-link {
+    text-align: center;
   }
   .contact-btn-col {
-    justify-content: flex-start;
+    justify-content: center;
   }
   .contact-footer-row {
     flex-direction: column;
     gap: 20px;
-    align-items: flex-start;
+    align-items: center;
+  }
+  .social-icons-group {
+    justify-content: center;
   }
   .collab-note {
-    text-align: left;
+    text-align: center;
   }
 }
 
@@ -253,11 +267,13 @@
 
   .lets-talk-heading {
     font-size: clamp(36px, 11vw, 80px);
+    text-align: center;
   }
 
   .email-outline-link {
     font-size: clamp(16px, 4.5vw, 28px);
     word-break: break-all;
+    text-align: center;
   }
 
   .circle-message-btn {
