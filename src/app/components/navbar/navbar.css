@@ -7,6 +7,7 @@
   padding: 32px 48px;
   background: transparent;
   pointer-events: none;
+  isolation: isolate;
 }
 
 .navbar-inner {
@@ -23,6 +24,7 @@
   letter-spacing: 0.05em;
   color: #FFFFFF;
   text-transform: uppercase;
+  mix-blend-mode: difference;
 }
 
 .nav-links {
@@ -38,6 +40,7 @@
   color: #FFFFFF;
   letter-spacing: 0.02em;
   transition: opacity 0.3s ease;
+  mix-blend-mode: difference;
 }
 
 .nav-link:hover {

@@ -111,3 +111,31 @@
   color: #000000;
   border-color: #FFFFFF;
 }
+
+@media (max-width: 768px) {
+  .portfolio-section {
+    padding: 60px 0 40px;
+  }
+
+  .portfolio-main-title {
+    margin-bottom: 36px;
+    font-size: clamp(36px, 9vw, 80px);
+  }
+
+  .video-stack {
+    gap: 40px;
+  }
+
+  .video-item-title {
+    font-size: 17px;
+  }
+
+  .load-more-wrapper {
+    margin-top: 40px;
+  }
+
+  .load-more-btn {
+    padding: 12px 32px;
+    font-size: 14px;
+  }
+}

@@ -241,3 +241,32 @@
     text-align: left;
   }
 }
+
+@media (max-width: 600px) {
+  .contact-section {
+    padding: 60px 0 40px;
+  }
+
+  .contact-container {
+    gap: 40px;
+  }
+
+  .lets-talk-heading {
+    font-size: clamp(36px, 11vw, 80px);
+  }
+
+  .email-outline-link {
+    font-size: clamp(16px, 4.5vw, 28px);
+    word-break: break-all;
+  }
+
+  .circle-message-btn {
+    width: 130px;
+    height: 130px;
+    font-size: 11px;
+  }
+
+  .inquiry-modal-card {
+    padding: 20px;
+  }
+}

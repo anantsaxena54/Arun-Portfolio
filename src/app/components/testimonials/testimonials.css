@@ -127,3 +127,26 @@
     padding-left: 0;
   }
 }
+
+@media (max-width: 768px) {
+  .about-section {
+    padding: 60px 0 40px;
+  }
+
+  .brands-strip-wrapper {
+    margin-top: 50px;
+    padding: 24px 0;
+  }
+
+  .brands-marquee {
+    gap: 32px;
+  }
+
+  .brand-item {
+    font-size: 18px;
+  }
+
+  .drag-badge {
+    display: none;
+  }
+}

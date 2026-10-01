@@ -55,6 +55,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  cursor: none !important;
 }
 
 html {
@@ -71,6 +72,7 @@ body {
   background-color: var(--color-1);
   overflow-x: hidden;
   font-family: var(--font-family-body);
+  cursor: none !important;
 }
 
 /* Custom Scrollbar */
@@ -183,23 +185,64 @@ a:hover {
   text-transform: lowercase;
 }
 
-.scroll-dot {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--color-8);
+.scroll-track-container {
+  position: relative;
+  width: 6px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
 }
 
-.scroll-line {
+.scroll-track-bg {
+  position: absolute;
+  top: 0;
+  left: 2.5px;
   width: 1px;
-  height: 40px;
-  background: rgba(255, 255, 255, 0.3);
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.scroll-track-progress {
+  position: absolute;
+  top: 0;
+  left: 2.5px;
+  width: 1px;
+  background: #FFFFFF;
+  transition: height 0.05s linear;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+}
+
+.scroll-dot-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+  transition: transform 0.05s linear;
+  will-change: transform;
 }
 
 @media (max-width: 1024px) {
   .fixed-left-bar,
   .fixed-right-bar {
-    display: none;
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px), (hover: none) and (pointer: coarse) {
+  *,
+  *::before,
+  *::after,
+  html,
+  body {
+    cursor: auto !important;
+  }
+
+  .custom-blend-cursor {
+    display: none !important;
   }
 }
 

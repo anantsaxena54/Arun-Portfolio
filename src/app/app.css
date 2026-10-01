@@ -9,4 +9,42 @@
   min-height: 100vh;
   transition: background-color 0.05s ease-out;
   will-change: background-color;
+  position: relative;
+}
+
+/* Custom Circle Lerp Follower Cursor with mix-blend-mode difference */
+.custom-blend-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  mix-blend-mode: difference;
+  pointer-events: none;
+  z-index: 99999;
+  opacity: 0;
+  transition: opacity 0.3s ease, width 0.3s cubic-bezier(0.23, 1, 0.32, 1), height 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  will-change: transform;
+}
+
+.custom-blend-cursor.visible {
+  opacity: 1;
+}
+
+.custom-blend-cursor.hovered {
+  width: 90px;
+  height: 90px;
+}
+
+/* Hero mode: Visually hide global cursor so hero-cursor-disc replaces it in isolated group */
+.custom-blend-cursor.hero-mode {
+  opacity: 0;
+}
+
+.main-content-wrapper {
+  position: relative;
+  z-index: 10;
+  pointer-events: auto;
 }

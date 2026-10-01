@@ -1,6 +1,5 @@
-<section class="hero-section">
+<section class="hero-section" #hero>
   <div class="hero-container">
-    <!-- Media Box Behind Text (z-index: 1) -->
     <div class="hero-media-box">
       <video 
         src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" 
@@ -11,8 +10,12 @@
         class="hero-gif-media">
       </video>
     </div>
+  </div>
 
-    <!-- Giant Name Overlay ABOVE Video (z-index: 10) -->
+  <!-- Isolated blend group: disc + navbar + title -->
+  <div class="hero-invert-group">
+    <div class="hero-cursor-disc"></div>
+    <app-navbar></app-navbar>
     <h1 class="hero-giant-title">ARUN SURNAME</h1>
   </div>
 </section>

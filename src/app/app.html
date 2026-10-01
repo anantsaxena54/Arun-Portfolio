@@ -1,37 +1,50 @@
 <div class="app-global-wrapper" [style.background-color]="globalBgColor()">
-  <!-- Fixed Left rotated Email bar (Reference Site style) -->
-  <div class="fixed-left-bar">
-    <a href="mailto:contact@arunedits.in">contact@arunedits.in</a>
+  <!-- Custom Lerp Follower Cursor (Black & White text inversion on hover) -->
+  <div 
+    #cursorRef 
+    class="custom-blend-cursor" 
+    [class.visible]="visible()" 
+    [class.hovered]="isHovered()"
+    [class.hero-mode]="isHeroHovered()"
+    aria-hidden="true">
   </div>
 
-  <!-- Fixed Right rotated Scroll Indicator bar (Reference Site style) -->
-  <div class="fixed-right-bar">
-    <span class="scroll-text">scroll</span>
-    <span class="scroll-dot"></span>
-    <span class="scroll-line"></span>
+  <!-- Main Content Wrapper (Navbar, Hero, Portfolio, About, Contact, Footer) -->
+  <div class="main-content-wrapper">
+    <!-- Fixed Left rotated Email bar (Reference Site style) -->
+    <div class="fixed-left-bar">
+      <a href="mailto:contact@arunedits.in">contact@arunedits.in</a>
+    </div>
+
+    <!-- Fixed Right rotated Scroll Indicator bar (Reference Site style) -->
+    <div class="fixed-right-bar">
+      <span class="scroll-text">scroll</span>
+      <div class="scroll-track-container">
+        <div class="scroll-track-bg"></div>
+        <div class="scroll-track-progress" [style.height.%]="overallScrollProgress() * 100"></div>
+        <div class="scroll-dot-indicator" [style.transform]="'translateY(' + (overallScrollProgress() * 44) + 'px)'"></div>
+      </div>
+    </div>
+
+    <!-- Hero Section with isolated navbar & blend cursor -->
+    <app-hero (playReel)="openShowreelModal()"></app-hero>
+
+    <!-- Selected Work Showcase ("PORTFOLIO") -->
+    <app-portfolio (selectProject)="openProjectModal($event)"></app-portfolio>
+
+    <!-- About Arun & Brand Logos Marquee ("ABOUT ARUN") -->
+    <app-testimonials></app-testimonials>
+
+    <!-- Contact Section ("LET'S TALK") -->
+    <app-contact></app-contact>
+
+    <!-- Footer -->
+    <app-footer></app-footer>
+
+    <!-- Video Player Modal Overlay -->
+    <app-video-modal 
+      [project]="activeModalProject()" 
+      (closeModal)="closeModal()">
+    </app-video-modal>
   </div>
-
-  <!-- Main Top Header Navigation -->
-  <app-navbar></app-navbar>
-
-  <!-- Hero Section -->
-  <app-hero (playReel)="openShowreelModal()"></app-hero>
-
-  <!-- Selected Work Showcase ("PORTFOLIO") -->
-  <app-portfolio (selectProject)="openProjectModal($event)"></app-portfolio>
-
-  <!-- About Arun & Brand Logos Marquee ("ABOUT ARUN") -->
-  <app-testimonials></app-testimonials>
-
-  <!-- Contact Section ("LET'S TALK") -->
-  <app-contact></app-contact>
-
-  <!-- Footer -->
-  <app-footer></app-footer>
-
-  <!-- Video Player Modal Overlay -->
-  <app-video-modal 
-    [project]="activeModalProject()" 
-    (closeModal)="closeModal()">
-  </app-video-modal>
 </div>
