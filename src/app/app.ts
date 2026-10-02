@@ -69,6 +69,7 @@ export class App implements AfterViewInit, OnDestroy {
   };
 
   private observer: IntersectionObserver | null = null;
+  private mutationObserver: MutationObserver | null = null;
 
   ngAfterViewInit() {
     this.requestRef = requestAnimationFrame(this.animate);
@@ -86,14 +87,23 @@ export class App implements AfterViewInit, OnDestroy {
             }
           });
         },
-        { threshold: 0.12, rootMargin: '0px 0px -80px 0px' }
+        { threshold: 0.05, rootMargin: '0px 0px 50px 0px' }
       );
 
-      setTimeout(() => {
-        document.querySelectorAll('.reveal-on-scroll').forEach((el) => {
+      const observeElements = () => {
+        document.querySelectorAll('.reveal-on-scroll:not(.is-revealed)').forEach((el) => {
           this.observer?.observe(el);
         });
-      }, 50);
+      };
+
+      observeElements();
+
+      if ('MutationObserver' in window) {
+        this.mutationObserver = new MutationObserver(() => {
+          observeElements();
+        });
+        this.mutationObserver.observe(document.body, { childList: true, subtree: true });
+      }
     }
   }
 
@@ -103,6 +113,9 @@ export class App implements AfterViewInit, OnDestroy {
     }
     if (this.observer) {
       this.observer.disconnect();
+    }
+    if (this.mutationObserver) {
+      this.mutationObserver.disconnect();
     }
   }
 
