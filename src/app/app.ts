@@ -68,13 +68,41 @@ export class App implements AfterViewInit, OnDestroy {
     this.requestRef = requestAnimationFrame(this.animate);
   };
 
+  private observer: IntersectionObserver | null = null;
+
   ngAfterViewInit() {
     this.requestRef = requestAnimationFrame(this.animate);
+    this.initScrollObserver();
+  }
+
+  private initScrollObserver() {
+    if (typeof window !== 'undefined' && 'IntersectionObserver' in window) {
+      this.observer = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-revealed');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12, rootMargin: '0px 0px -80px 0px' }
+      );
+
+      setTimeout(() => {
+        document.querySelectorAll('.reveal-on-scroll').forEach((el) => {
+          this.observer?.observe(el);
+        });
+      }, 50);
+    }
   }
 
   ngOnDestroy() {
     if (this.requestRef) {
       cancelAnimationFrame(this.requestRef);
+    }
+    if (this.observer) {
+      this.observer.disconnect();
     }
   }
 

@@ -1,11 +1,11 @@
 <section id="work" class="portfolio-section">
   <div class="container">
-    <h2 class="portfolio-main-title">PORTFOLIO</h2>
+    <h2 class="portfolio-main-title reveal-on-scroll">PORTFOLIO</h2>
 
     <!-- Video Work Stack -->
     <div class="video-stack">
-      @for (project of visibleProjects(); track project.id) {
-        <article class="video-item-card" (click)="onProjectClick(project)">
+      @for (project of visibleProjects(); track project.id; let i = $index) {
+        <article [class]="'video-item-card reveal-on-scroll reveal-delay-' + ((i % 3) + 1)" (click)="onProjectClick(project)">
           <div class="video-thumbnail-box">
             <img [src]="project.image" [alt]="project.title" class="video-thumb-img">
             <div class="video-play-overlay">
