@@ -2,19 +2,36 @@
   <div class="container">
     <h2 class="portfolio-main-title reveal-on-scroll">PORTFOLIO</h2>
 
-    <!-- Video Work Stack -->
+    <!-- Alternating Video Work Stack -->
     <div class="video-stack">
       @for (project of visibleProjects(); track project.id; let i = $index) {
         <article [class]="'video-item-card reveal-on-scroll reveal-delay-' + ((i % 3) + 1)" (click)="onProjectClick(project)">
+          <div class="video-info-box">
+            <span class="video-client-tag">{{ project.client }}</span>
+            <h3 class="video-item-title">{{ project.title }}</h3>
+            <p class="video-desc">{{ project.description }}</p>
+
+            <div class="video-tags-row">
+              @for (tag of project.tags; track tag) {
+                <span class="tag-pill">{{ tag }}</span>
+              }
+            </div>
+
+            <div class="watch-project-link">
+              <span>WATCH PROJECT</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+          </div>
+
           <div class="video-thumbnail-box">
             <img [src]="project.image" [alt]="project.title" class="video-thumb-img">
             <div class="video-play-overlay">
+              <span class="duration-badge">{{ project.duration }}</span>
               <div class="play-icon-corner">
                 <i class="fa-solid fa-play"></i>
               </div>
             </div>
           </div>
-          <h3 class="video-item-title">{{ project.title }}</h3>
         </article>
       }
     </div>

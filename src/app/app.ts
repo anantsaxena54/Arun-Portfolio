@@ -1,4 +1,4 @@
-import { Component, HostListener, signal, computed, ViewChild, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, HostListener, signal, computed, AfterViewInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './components/navbar/navbar';
 import { HeroComponent } from './components/hero/hero';
@@ -7,6 +7,7 @@ import { VideoModalComponent } from './components/video-modal/video-modal';
 import { TestimonialsComponent } from './components/testimonials/testimonials';
 import { ContactComponent } from './components/contact/contact';
 import { FooterComponent } from './components/footer/footer';
+import { CursorComponent } from './components/cursor/cursor';
 
 @Component({
   selector: 'app-root',
@@ -19,60 +20,54 @@ import { FooterComponent } from './components/footer/footer';
     VideoModalComponent,
     TestimonialsComponent,
     ContactComponent,
-    FooterComponent
+    FooterComponent,
+    CursorComponent
   ],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App implements AfterViewInit, OnDestroy {
-  @ViewChild('cursorRef') cursorRef!: ElementRef<HTMLDivElement>;
-
-  size = 60;
-  visible = signal<boolean>(false);
-  isHovered = signal<boolean>(false);
   scrollProgress = signal<number>(0);
+  overallScrollProgress = signal<number>(0);
   activeModalProject = signal<ProjectItem | null>(null);
 
-  private previousPos = { x: -60, y: -60 };
-  private position = { x: -60, y: -60 };
-  private requestRef: number | null = null;
+  activeSection = signal<'hero' | 'portfolio' | 'about' | 'contact'>('hero');
+  aboutFadeP = signal<number>(0);   // 0 = Black, 1 = Red
+  contactFadeP = signal<number>(0); // 0 = Red, 1 = Black
 
-  // Dynamic global page background color interpolating Red (168, 26, 32) -> Black (10, 10, 12)
+  // Dynamic global page background color:
+  // - Hero: Red -> Black fade
+  // - Portfolio: 100% Solid Black (zero red at end of portfolio)
+  // - About Me: Fades to Red as About Me enters, stays Solid Red
+  // - Contact & Footer: Fades to Black as Contact enters, stays Solid Black
   globalBgColor = computed(() => {
-    const p = this.scrollProgress();
-    const pFast = Math.min(1, p * 2.2);
-    const r = Math.round(168 - (168 - 10) * pFast);
-    const g = Math.round(26 - (26 - 10) * pFast);
-    const b = Math.round(32 - (32 - 12) * pFast);
-    return `rgb(${r}, ${g}, ${b})`;
-  });
+    const sec = this.activeSection();
+    const heroP = this.scrollProgress();
+    const aboutP = this.aboutFadeP();
+    const contactP = this.contactFadeP();
 
-  private animate = () => {
-    if (this.cursorRef?.nativeElement) {
-      const currentX = this.previousPos.x;
-      const currentY = this.previousPos.y;
-      const targetSize = this.isHovered() ? 90 : 40;
-      const targetX = this.position.x - targetSize / 2;
-      const targetY = this.position.y - targetSize / 2;
+    let factor = 1; // 0 = Red (168, 26, 32), 1 = Black (10, 10, 12)
 
-      const deltaX = (targetX - currentX) * 0.2;
-      const deltaY = (targetY - currentY) * 0.2;
-
-      const newX = currentX + deltaX;
-      const newY = currentY + deltaY;
-
-      this.previousPos = { x: newX, y: newY };
-      this.cursorRef.nativeElement.style.transform = `translate3d(${newX}px, ${newY}px, 0)`;
+    if (sec === 'hero') {
+      factor = heroP; // 0 (Red) -> 1 (Black)
+    } else if (sec === 'portfolio') {
+      factor = 1; // 100% SOLID BLACK
+    } else if (sec === 'about') {
+      factor = 1 - aboutP; // 1 (Black) -> 0 (Red)
+    } else if (sec === 'contact') {
+      factor = contactP; // 0 (Red) -> 1 (Black)
     }
 
-    this.requestRef = requestAnimationFrame(this.animate);
-  };
+    const r = Math.round(168 - (168 - 10) * factor);
+    const g = Math.round(26 - (26 - 10) * factor);
+    const b = Math.round(32 - (32 - 12) * factor);
+    return `rgb(${r}, ${g}, ${b})`;
+  });
 
   private observer: IntersectionObserver | null = null;
   private mutationObserver: MutationObserver | null = null;
 
   ngAfterViewInit() {
-    this.requestRef = requestAnimationFrame(this.animate);
     this.initScrollObserver();
   }
 
@@ -108,9 +103,6 @@ export class App implements AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    if (this.requestRef) {
-      cancelAnimationFrame(this.requestRef);
-    }
     if (this.observer) {
       this.observer.disconnect();
     }
@@ -118,58 +110,6 @@ export class App implements AfterViewInit, OnDestroy {
       this.mutationObserver.disconnect();
     }
   }
-
-  isHeroHovered = signal<boolean>(true);
-
-  @HostListener('document:mousemove', ['$event'])
-  onMouseMove(e: MouseEvent) {
-    this.visible.set(true);
-    this.position = { x: e.clientX, y: e.clientY };
-    document.documentElement.style.setProperty('--mouse-x', `${e.clientX}px`);
-    document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`);
-
-    const heroEl = document.querySelector('.hero-section');
-    const overNavbar = e.clientY <= 95;
-    if (heroEl) {
-      const rect = heroEl.getBoundingClientRect();
-      const inHero = e.clientY >= rect.top && e.clientY <= rect.bottom;
-      this.isHeroHovered.set(inHero || overNavbar);
-    } else {
-      this.isHeroHovered.set(overNavbar);
-    }
-  }
-
-  @HostListener('document:mouseover', ['$event'])
-  onMouseOver(e: MouseEvent) {
-    const target = e.target as HTMLElement;
-    if (target) {
-      const isInteractive = !!(
-        target.tagName === 'A' ||
-        target.tagName === 'BUTTON' ||
-        target.tagName === 'H1' ||
-        target.tagName === 'H2' ||
-        target.tagName === 'H3' ||
-        target.tagName === 'SPAN' ||
-        target.closest('a') ||
-        target.closest('button') ||
-        target.closest('.video-item-card') ||
-        target.closest('.hero-giant-title')
-      );
-      this.isHovered.set(isInteractive);
-    }
-  }
-
-  @HostListener('document:mouseenter')
-  onMouseEnter() {
-    this.visible.set(true);
-  }
-
-  @HostListener('document:mouseleave')
-  onMouseLeave() {
-    this.visible.set(false);
-  }
-
-  overallScrollProgress = signal<number>(0);
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
@@ -182,6 +122,39 @@ export class App implements AfterViewInit, OnDestroy {
 
     const heroProgress = Math.min(1, Math.max(0, scrollY / (windowHeight * 0.75)));
     this.scrollProgress.set(heroProgress);
+
+    document.documentElement.style.setProperty('--scroll-y', `${scrollY}px`);
+    document.documentElement.style.setProperty('--hero-scroll-p', `${heroProgress}`);
+    document.documentElement.style.setProperty('--overall-scroll-p', `${overall}`);
+
+    // DOM Bounding Box Section Detection for Exact Zero-Bleed Colors
+    const heroEl = document.querySelector('.hero-section');
+    const aboutEl = document.querySelector('.about-section');
+    const contactEl = document.querySelector('.contact-section');
+
+    const heroBottom = heroEl ? heroEl.getBoundingClientRect().bottom : 0;
+    const aboutTop = aboutEl ? aboutEl.getBoundingClientRect().top : 99999;
+    const contactTop = contactEl ? contactEl.getBoundingClientRect().top : 99999;
+
+    if (contactTop <= windowHeight) {
+      // Contact Me section is entering or active -> Fade to Black
+      this.activeSection.set('contact');
+      const fadeDist = windowHeight * 0.6;
+      const p = Math.min(1, Math.max(0, (windowHeight - contactTop) / fadeDist));
+      this.contactFadeP.set(p);
+    } else if (aboutTop <= windowHeight) {
+      // About Me section is entering or active -> Fade to Red
+      this.activeSection.set('about');
+      const fadeDist = windowHeight * 0.6;
+      const p = Math.min(1, Math.max(0, (windowHeight - aboutTop) / fadeDist));
+      this.aboutFadeP.set(p);
+    } else if (heroBottom > 0) {
+      // Hero section -> Red fading out
+      this.activeSection.set('hero');
+    } else {
+      // Portfolio section -> 100% SOLID BLACK
+      this.activeSection.set('portfolio');
+    }
   }
 
   showReelProject: ProjectItem = {

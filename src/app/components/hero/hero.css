@@ -41,45 +41,15 @@
   transition: transform 0.1s ease-out;
 }
 
-.hero-invert-group {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  isolation: isolate;
-  display: grid;
-  place-items: center;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-.hero-cursor-disc {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: calc(var(--r, 20px) * 2);
-  height: calc(var(--r, 20px) * 2);
-  border-radius: 50%;
-  background: #fff;
-  transform: translate3d(
-    calc(var(--x, -200px) - var(--r, 20px)),
-    calc(var(--y, -200px) - var(--r, 20px)),
-    0
-  );
-  will-change: transform;
-}
-
 .hero-giant-title {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, calc(-50% - var(--hero-scroll-p, 0) * 50px));
+  position: relative;
+  z-index: 2; /* Text sits ABOVE video */
+  transform: translateY(calc(-1 * var(--hero-scroll-p, 0) * 50px));
   opacity: calc(1 - var(--hero-scroll-p, 0) * 0.35);
   width: 100%;
-  z-index: 1;
   font-family: var(--font-family-display);
   font-size: clamp(38px, 12.5vw, 260px);
-  color: #fff;
-  mix-blend-mode: difference;
+  color: #FFFFFF;
   line-height: 0.85;
   letter-spacing: 0.02em;
   text-align: center;

@@ -1,0 +1,13 @@
+.custom-blend-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 2147483647;
+  will-change: transform;
+  -webkit-backdrop-filter: grayscale(1) invert(1) brightness(1.4);
+  backdrop-filter: grayscale(1) invert(1) brightness(1.4);
+}

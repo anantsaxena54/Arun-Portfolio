@@ -262,7 +262,7 @@ a:not(.nav-link):not(.brand-logo):hover {
   white-space: nowrap;
   width: 100%;
   padding: 30px 0;
-  background: var(--color-1);
+  background: transparent;
   border-top: 1px solid var(--color-border);
   border-bottom: 1px solid var(--color-border);
 }

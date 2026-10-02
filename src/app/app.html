@@ -1,14 +1,4 @@
 <div class="app-global-wrapper" [style.background-color]="globalBgColor()">
-  <!-- Custom Lerp Follower Cursor (Black & White text inversion on hover) -->
-  <div 
-    #cursorRef 
-    class="custom-blend-cursor" 
-    [class.visible]="visible()" 
-    [class.hovered]="isHovered()"
-    [class.hero-mode]="isHeroHovered()"
-    aria-hidden="true">
-  </div>
-
   <!-- Main Content Wrapper (Navbar, Hero, Portfolio, About, Contact, Footer) -->
   <div class="main-content-wrapper">
     <!-- Fixed Left rotated Email bar (Reference Site style) -->
@@ -26,7 +16,7 @@
       </div>
     </div>
 
-    <!-- Main Top Header Navigation (Fixed sitewide with isolated disc blend) -->
+    <!-- Main Top Header Navigation -->
     <app-navbar></app-navbar>
 
     <!-- Hero Section -->
@@ -50,4 +40,7 @@
       (closeModal)="closeModal()">
     </app-video-modal>
   </div>
+
+  <!-- Standalone Inversion Follower Cursor -->
+  <app-cursor></app-cursor>
 </div>
