@@ -8,6 +8,24 @@
   background: transparent;
   pointer-events: none;
   isolation: isolate;
+  overflow: hidden;
+}
+
+.navbar-disc {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(var(--r, 20px) * 2);
+  height: calc(var(--r, 20px) * 2);
+  border-radius: 50%;
+  background: #fff;
+  transform: translate3d(
+    calc(var(--x, -200px) - var(--r, 20px)),
+    calc(var(--y, -200px) - var(--r, 20px)),
+    0
+  );
+  will-change: transform;
+  pointer-events: none;
 }
 
 .navbar-inner {
@@ -25,6 +43,11 @@
   color: #FFFFFF;
   text-transform: uppercase;
   mix-blend-mode: difference;
+  opacity: 1;
+}
+
+.brand-logo:hover {
+  opacity: 1;
 }
 
 .nav-links {
@@ -39,12 +62,12 @@
   font-weight: 500;
   color: #FFFFFF;
   letter-spacing: 0.02em;
-  transition: opacity 0.3s ease;
   mix-blend-mode: difference;
+  opacity: 1;
 }
 
 .nav-link:hover {
-  opacity: 0.6;
+  opacity: 1;
 }
 
 @media (max-width: 768px) {

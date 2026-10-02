@@ -127,7 +127,7 @@ a {
   transition: opacity 0.3s ease;
 }
 
-a:hover {
+a:not(.nav-link):not(.brand-logo):hover {
   opacity: 0.7;
 }
 

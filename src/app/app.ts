@@ -1,5 +1,6 @@
 import { Component, HostListener, signal, computed, ViewChild, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NavbarComponent } from './components/navbar/navbar';
 import { HeroComponent } from './components/hero/hero';
 import { PortfolioComponent, ProjectItem } from './components/portfolio/portfolio';
 import { VideoModalComponent } from './components/video-modal/video-modal';
@@ -12,6 +13,7 @@ import { FooterComponent } from './components/footer/footer';
   standalone: true,
   imports: [
     CommonModule,
+    NavbarComponent,
     HeroComponent,
     PortfolioComponent,
     VideoModalComponent,
@@ -86,10 +88,13 @@ export class App implements AfterViewInit, OnDestroy {
     document.documentElement.style.setProperty('--mouse-y', `${e.clientY}px`);
 
     const heroEl = document.querySelector('.hero-section');
+    const overNavbar = e.clientY <= 95;
     if (heroEl) {
       const rect = heroEl.getBoundingClientRect();
       const inHero = e.clientY >= rect.top && e.clientY <= rect.bottom;
-      this.isHeroHovered.set(inHero);
+      this.isHeroHovered.set(inHero || overNavbar);
+    } else {
+      this.isHeroHovered.set(overNavbar);
     }
   }
 

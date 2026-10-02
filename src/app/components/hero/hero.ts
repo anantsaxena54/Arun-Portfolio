@@ -1,11 +1,10 @@
 import { Component, ElementRef, ViewChild, NgZone, AfterViewInit, OnDestroy, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NavbarComponent } from '../navbar/navbar';
 
 @Component({
   selector: 'app-hero',
   standalone: true,
-  imports: [CommonModule, NavbarComponent],
+  imports: [CommonModule],
   templateUrl: './hero.html',
   styleUrl: './hero.css'
 })
