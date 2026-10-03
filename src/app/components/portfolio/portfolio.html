@@ -9,13 +9,6 @@
           <div class="video-info-box">
             <span class="video-client-tag">{{ project.client }}</span>
             <h3 class="video-item-title">{{ project.title }}</h3>
-            <p class="video-desc">{{ project.description }}</p>
-
-            <div class="video-tags-row">
-              @for (tag of project.tags; track tag) {
-                <span class="tag-pill">{{ tag }}</span>
-              }
-            </div>
 
             <div class="watch-project-link">
               <span>WATCH PROJECT</span>

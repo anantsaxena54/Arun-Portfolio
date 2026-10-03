@@ -43,7 +43,7 @@ export class PortfolioComponent {
       views: '1.8M',
       tags: ['4K Anamorphic', 'Speed Ramping', 'Sound Design'],
       description: 'High-octane commercial edit utilizing rhythm-matched sound design, custom speed ramps, and deep teal-red color grade.',
-      videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
+      videoUrl: 'https://vimeo.com/76979871',
       specs: {
         resolution: '4K DCI Anamorphic 2.39:1',
         fps: '24fps / 120fps Slow-mo',
@@ -61,7 +61,7 @@ export class PortfolioComponent {
       views: '5.2M',
       tags: ['Narrative Cut', 'Color Grading', 'Dialogue Mix'],
       description: 'Heartwarming commercial edit focusing on character expressions, delicate audio transitions, and warm Kodak film color print.',
-      videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4',
+      videoUrl: 'https://vimeo.com/177160094',
       specs: {
         resolution: '4K DCI',
         fps: '24 fps',

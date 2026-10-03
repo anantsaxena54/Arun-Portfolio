@@ -12,11 +12,24 @@
       </div>
 
       <div class="modal-video-wrapper">
-        <video #videoPlayer [src]="project()?.videoUrl" poster="assets/images/hero_editing_suite.jpg" autoplay controls class="modal-video"></video>
-      </div>
-
-      <div class="modal-body">
-        <p>{{ project()?.description }}</p>
+        @if (videoType() === 'vimeo' || videoType() === 'youtube') {
+          <iframe 
+            [src]="safeEmbedUrl()" 
+            class="modal-video-iframe" 
+            frameborder="0" 
+            allow="autoplay; fullscreen; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
+        } @else {
+          <video 
+            #videoPlayer 
+            [src]="project()?.videoUrl" 
+            poster="assets/images/hero_editing_suite.jpg" 
+            autoplay 
+            controls 
+            class="modal-video">
+          </video>
+        }
       </div>
     </div>
   </div>
