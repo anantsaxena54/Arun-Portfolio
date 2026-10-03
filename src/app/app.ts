@@ -127,10 +127,10 @@ export class App implements AfterViewInit, OnDestroy {
     document.documentElement.style.setProperty('--hero-scroll-p', `${heroProgress}`);
     document.documentElement.style.setProperty('--overall-scroll-p', `${overall}`);
 
-    // DOM Bounding Box Section Detection for Exact Zero-Bleed Colors
+    // DOM Bounding Box Section Detection for Exact Colors
     const heroEl = document.querySelector('.hero-section');
     const aboutEl = document.querySelector('.about-section');
-    const contactEl = document.querySelector('.contact-section');
+    const contactEl = document.querySelector('#contact') || document.querySelector('.lets-work-section') || document.querySelector('.contact-section');
 
     const heroBottom = heroEl ? heroEl.getBoundingClientRect().bottom : 0;
     const aboutTop = aboutEl ? aboutEl.getBoundingClientRect().top : 99999;

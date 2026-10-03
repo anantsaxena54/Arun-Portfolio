@@ -5,9 +5,9 @@
 
 .about-grid {
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr 0.8fr;
-  gap: 48px;
-  align-items: start;
+  grid-template-columns: minmax(300px, 420px) 1fr;
+  gap: 64px;
+  align-items: center;
 }
 
 .portrait-column {

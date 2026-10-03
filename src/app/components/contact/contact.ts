@@ -1,35 +1,38 @@
 import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule],
   templateUrl: './contact.html',
   styleUrl: './contact.css'
 })
 export class ContactComponent {
-  isModalOpen = signal<boolean>(false);
-  isSubmitted = signal<boolean>(false);
+  isHovered = signal<boolean>(false);
+  isClicked = signal<boolean>(false);
+  showSuccess = signal<boolean>(false);
+  isButtonHovered = signal<boolean>(false);
 
-  formData = {
-    name: '',
-    email: '',
-    projectType: 'Commercial',
-    details: ''
-  };
+  handleClick(event: Event) {
+    event.preventDefault();
+    this.isClicked.set(true);
 
-  openModal() {
-    this.isModalOpen.set(true);
+    setTimeout(() => {
+      this.showSuccess.set(true);
+    }, 500);
   }
 
-  closeModal() {
-    this.isModalOpen.set(false);
+  handleSendMessage() {
+    window.open("https://wa.me/917477294570?text=Hi%20Arun,%20I'd%20like%20to%20discuss%20a%20video%20editing%20project!", '_blank');
   }
 
-  onSubmit() {
-    if (!this.formData.name || !this.formData.email) return;
-    this.isSubmitted.set(true);
+  setHover(state: boolean) {
+    this.isHovered.set(state);
+  }
+
+  setButtonHover(state: boolean) {
+    this.isButtonHovered.set(state);
   }
 }
+
