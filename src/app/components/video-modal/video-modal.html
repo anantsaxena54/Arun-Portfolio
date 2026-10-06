@@ -12,12 +12,15 @@
       </div>
 
       <div class="modal-video-wrapper">
-        @if (videoType() === 'vimeo' || videoType() === 'youtube') {
+
+        @if (videoType() === 'vimeo' || videoType() === 'youtube' || videoType() === 'gdrive') {
           <iframe 
             [src]="safeEmbedUrl()" 
             class="modal-video-iframe" 
+            [class.gdrive-iframe]="videoType() === 'gdrive'"
             frameborder="0" 
-            allow="autoplay; fullscreen; picture-in-picture" 
+            sandbox="allow-scripts allow-same-origin allow-forms"
+            allow="autoplay; fullscreen; encrypted-media; gyroscope; accelerometer" 
             allowfullscreen>
           </iframe>
         } @else {
@@ -26,7 +29,10 @@
             [src]="project()?.videoUrl" 
             poster="assets/images/hero_editing_suite.jpg" 
             autoplay 
+            playsinline 
             controls 
+            controlsList="nodownload noplaybackrate nopictureinpicture"
+            disablePictureInPicture
             class="modal-video">
           </video>
         }

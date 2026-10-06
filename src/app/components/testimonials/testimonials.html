@@ -1,4 +1,4 @@
-<!-- Full-Width Marquee Ticker -->
+<!-- 1st Banner (Hidden/Commented for now)
 <div class="marquee-container">
   <div class="marquee-content">
     <div class="marquee-item">
@@ -31,6 +31,37 @@
     </div>
   </div>
 </div>
+-->
+
+<!-- Brand Logos Marquee Strip (Positioned directly below the first banner) -->
+<div class="brands-strip-wrapper">
+  <div class="brands-marquee">
+    @for (brand of brands; track brand.name + '_1') {
+      <div class="brand-item">
+        <i class="fa-solid {{ brand.icon }}"></i>
+        <span>{{ brand.name }}</span>
+      </div>
+    }
+    @for (brand of brands; track brand.name + '_2') {
+      <div class="brand-item">
+        <i class="fa-solid {{ brand.icon }}"></i>
+        <span>{{ brand.name }}</span>
+      </div>
+    }
+    @for (brand of brands; track brand.name + '_3') {
+      <div class="brand-item">
+        <i class="fa-solid {{ brand.icon }}"></i>
+        <span>{{ brand.name }}</span>
+      </div>
+    }
+    @for (brand of brands; track brand.name + '_4') {
+      <div class="brand-item">
+        <i class="fa-solid {{ brand.icon }}"></i>
+        <span>{{ brand.name }}</span>
+      </div>
+    }
+  </div>
+</div>
 
 <!-- About Section -->
 <section id="about" class="about-section">
@@ -42,49 +73,23 @@
 
     <!-- Center Column: Bio Text -->
     <div class="bio-column reveal-on-scroll reveal-delay-1">
-      <h2 class="about-title">ABOUT ARUN</h2>
+      <h2 class="about-title">ABOUT ADCUT STUDIOS</h2>
       
       <p class="bio-paragraph">
-        Arun is a Mumbai and international based senior video editor, colorist, and visual storyteller. On completing his film production studies, he pursued specialized masterclasses in Cinematic Editing and Color Science from DaVinci Resolve Academy.
+        <em>AdCut Studios was started by Arun Chelani — an editor and filmmaker who has always been drawn to what happens between the frames.</em>
       </p>
       
       <p class="bio-paragraph">
-        He has worked with renowned production houses, directors, and top-tier global creators. He has contributed as Lead Commercial Editor on high-impact brand campaigns and commercial films across Asia &amp; Europe.
+        Over the years, we’ve had the opportunity to work with <em>150+ brands</em> across commercials, films and digital content. Our work moves between <em>production and post-production — shoot, edit, colour, sound, music, VFX and finishing.</em>
       </p>
 
       <p class="bio-paragraph">
-        Arun has been independently editing since 2020 and has cut more than 100 commercials and music films for global brands including Netflix, Tata, Amazon, ICICI, Starbucks, Instagram &amp; Meta to name a few.
+        We’re a small, hands-on studio, and we like being close to the work. From the first frame to the final export, we stay involved in the process and the details that shape how a film feels.
       </p>
-    </div>
-  </div>
 
-  <!-- Brand Logos Marquee Strip -->
-  <div class="brands-strip-wrapper">
-    <div class="brands-marquee">
-      @for (brand of brands; track brand.name + '_1') {
-        <div class="brand-item">
-          <i class="fa-solid {{ brand.icon }}"></i>
-          <span>{{ brand.name }}</span>
-        </div>
-      }
-      @for (brand of brands; track brand.name + '_2') {
-        <div class="brand-item">
-          <i class="fa-solid {{ brand.icon }}"></i>
-          <span>{{ brand.name }}</span>
-        </div>
-      }
-      @for (brand of brands; track brand.name + '_3') {
-        <div class="brand-item">
-          <i class="fa-solid {{ brand.icon }}"></i>
-          <span>{{ brand.name }}</span>
-        </div>
-      }
-      @for (brand of brands; track brand.name + '_4') {
-        <div class="brand-item">
-          <i class="fa-solid {{ brand.icon }}"></i>
-          <span>{{ brand.name }}</span>
-        </div>
-      }
+      <p class="bio-paragraph">
+        <em>For us, filmmaking is less about getting from A to B, and more about finding the moments in between.</em>
+      </p>
     </div>
   </div>
 </section>

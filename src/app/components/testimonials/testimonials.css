@@ -37,9 +37,14 @@
 
 .bio-paragraph {
   font-family: var(--font-family-body);
-  font-size: 15px;
+  font-size: 16px;
   color: rgba(255, 255, 255, 0.7);
   line-height: 1.7;
+}
+
+.bio-paragraph em {
+  font-style: italic;
+  color: #FFFFFF;
 }
 
 .expertise-column {
@@ -72,9 +77,8 @@
 /* Brand Logos Strip */
 .brands-strip-wrapper {
   position: relative;
-  margin-top: 100px;
-  padding: 40px 0;
-  border-top: 1px solid var(--color-border);
+  margin-top: 0;
+  padding: 24px 0;
   border-bottom: 1px solid var(--color-border);
   overflow: hidden;
   background: rgba(255, 255, 255, 0.01);
@@ -91,13 +95,19 @@
 .brand-item {
   display: flex;
   align-items: center;
-  gap: 12px;
-  font-family: var(--font-family-display);
-  font-size: 26px;
-  color: rgba(255, 255, 255, 0.45);
-  letter-spacing: 0.05em;
+  gap: 36px;
+  font-family: 'Six Caps', sans-serif !important;
+  font-size: clamp(72px, 10vw, 150px);
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.04em;
+  line-height: 0.85;
   white-space: nowrap;
   transition: color 0.3s ease;
+  padding-right: 36px;
+}
+
+.brand-item i {
+  font-size: 0.45em;
 }
 
 .brand-item:hover {

@@ -30,151 +30,295 @@ export interface ProjectItem {
 export class PortfolioComponent {
   selectProject = output<ProjectItem>();
 
-  visibleCount = signal<number>(4);
+  visibleCount = signal<number>(6);
 
   projects = signal<ProjectItem[]>([
     {
       id: 'proj-1',
-      title: 'Velocity GT — Porsche Commercial',
+      title: 'Hockey India League',
       category: 'commercials',
-      client: 'Porsche / Horizon Agency',
+      client: 'StudioFry | Dir: Devang Singh',
       image: 'assets/images/placeholder_white.svg',
-      duration: '00:45',
-      views: '1.8M',
-      tags: ['4K Anamorphic', 'Speed Ramping', 'Sound Design'],
-      description: 'High-octane commercial edit utilizing rhythm-matched sound design, custom speed ramps, and deep teal-red color grade.',
-      videoUrl: 'https://vimeo.com/76979871',
+      duration: '',
+      views: '2.5M',
+      tags: ['Commercial', 'Editing', 'StudioFry'],
+      description: 'Production House: StudioFry | Director: Devang Singh | Editor: Arun Chelani',
+      videoUrl: 'https://drive.google.com/file/d/1iNh2QtI2lwucKcoLy4wbCMsfGvcM16tO/preview',
       specs: {
-        resolution: '4K DCI Anamorphic 2.39:1',
-        fps: '24fps / 120fps Slow-mo',
-        software: ['DaVinci Resolve Studio', 'Premiere Pro', 'iZotope RX'],
-        turnaround: '3 Days'
+        resolution: '4K DCI',
+        fps: '24 fps',
+        software: ['Premiere Pro', 'DaVinci Resolve'],
+        turnaround: 'Master Cut'
       }
     },
     {
       id: 'proj-2',
-      title: 'IndusInd Bank — Doorstep Banking Commercial',
+      title: 'Samsung x Prime Video',
       category: 'commercials',
-      client: 'IndusInd Bank / Romp Productions',
+      client: 'Collectiveart | Dir: Avnish K',
       image: 'assets/images/placeholder_white.svg',
-      duration: '01:15',
-      views: '5.2M',
-      tags: ['Narrative Cut', 'Color Grading', 'Dialogue Mix'],
-      description: 'Heartwarming commercial edit focusing on character expressions, delicate audio transitions, and warm Kodak film color print.',
-      videoUrl: 'https://vimeo.com/177160094',
+      duration: '',
+      views: '3.1M',
+      tags: ['Commercial', 'Editing', 'Collectiveart'],
+      description: 'Production House: Collectiveart | Director: Avnish K | Editor: Arun Chelani',
+      videoUrl: 'https://drive.google.com/file/d/1Irk1vIT9nHYbSG0JxiNqM-AGBo1NxhFw/preview',
       specs: {
         resolution: '4K DCI',
         fps: '24 fps',
         software: ['Premiere Pro', 'DaVinci Resolve'],
-        turnaround: '4 Days'
+        turnaround: 'Master Cut'
       }
     },
     {
       id: 'proj-3',
-      title: 'Neon City Beats — Cyberpunk Music Video',
-      category: 'music',
-      client: 'Sony Music / Apex Records',
+      title: 'Mahindra XEV9S',
+      category: 'commercials',
+      client: '456 Studios | Dir: Llyod Bapista',
       image: 'assets/images/placeholder_white.svg',
-      duration: '03:20',
-      views: '14.2M',
-      tags: ['VFX Glitch', 'Frame Blending', 'Light Leaks'],
-      description: 'Stylized music video edit with sync-to-beat frame pulses, glitch transitions, and heavy neon split-tone color grade.',
-      videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4',
+      duration: '',
+      views: '4.8M',
+      tags: ['Commercial', 'Editing', '456 Studios'],
+      description: 'Production House: 456 Studios | Director: Llyod Bapista | Editor: Arun Chelani',
+      videoUrl: 'https://drive.google.com/file/d/1j7uER1_zcjpT6HWeVsHjLUU1XAm9LrxS/preview',
       specs: {
-        resolution: '4K UHD',
-        fps: '23.976 fps',
-        software: ['After Effects', 'Premiere Pro', 'Sapphire VFX'],
-        turnaround: '5 Days'
+        resolution: '4K DCI',
+        fps: '24 fps',
+        software: ['Premiere Pro', 'DaVinci Resolve'],
+        turnaround: 'Master Cut'
       }
     },
     {
       id: 'proj-4',
-      title: 'BGMI Cylinder Man — High Action Commercial',
+      title: 'BRAVE Tabs',
       category: 'commercials',
-      client: 'Krafton / Esports India',
+      client: 'Newway Films | Dir: Vaishali Tuteja',
       image: 'assets/images/placeholder_white.svg',
-      duration: '02:10',
-      views: '8.9M',
-      tags: ['Esports', 'VFX Compositing', 'Fast Pacing'],
-      description: 'Fast-paced gaming commercial cut with heavy visual sound design, 3D camera tracking, and custom title graphics.',
-      videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
+      duration: '',
+      views: '1.9M',
+      tags: ['Commercial', 'Editing', 'Newway Films'],
+      description: 'Production House: Newway Films | Director: Vaishali Tuteja | Editor: Arun Chelani',
+      videoUrl: 'https://drive.google.com/file/d/12y4TVsC8sa14cAlwCpQQi7wd360NeRP6/preview',
       specs: {
-        resolution: '4K UHD',
-        fps: '60 fps',
-        software: ['Premiere Pro', 'After Effects', 'Blender'],
-        turnaround: '3 Days'
+        resolution: '4K DCI',
+        fps: '24 fps',
+        software: ['Premiere Pro', 'DaVinci Resolve'],
+        turnaround: 'Master Cut'
       }
     },
     {
       id: 'proj-5',
-      title: 'Red Bull High-Altitude Flight — Thrill Campaign',
+      title: 'IQOO 15R',
       category: 'commercials',
-      client: 'Red Bull Media House',
+      client: 'Karmanline | Dir: Bhanu Babbal',
       image: 'assets/images/placeholder_white.svg',
-      duration: '01:30',
-      views: '3.4M',
-      tags: ['Extreme Sports', 'High FPS', 'Sound Design'],
-      description: 'Action-packed flight commercial with rapid multi-cam sync, wind noise cancellation, and high-impact sound design.',
-      videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+      duration: '',
+      views: '5.4M',
+      tags: ['Commercial', 'Editing', 'Karmanline'],
+      description: 'Production House: Karmanline | Director: Bhanu Babbal | Editor: Arun Chelani',
+      videoUrl: 'https://drive.google.com/file/d/1MnDQkOhMnYdVjZ35dI7clEv6vhUcpW_S/preview',
       specs: {
         resolution: '4K DCI',
-        fps: '120 fps',
+        fps: '24 fps',
         software: ['Premiere Pro', 'DaVinci Resolve'],
-        turnaround: '3 Days'
+        turnaround: 'Master Cut'
       }
     },
     {
       id: 'proj-6',
-      title: 'Nike Mercurial — Speed Ramping Spot',
+      title: 'Realme P4 Power',
       category: 'commercials',
-      client: 'Nike / Wieden+Kennedy',
+      client: 'Karmanline | Dir: Neal Massey',
       image: 'assets/images/placeholder_white.svg',
-      duration: '00:60',
-      views: '11.8M',
-      tags: ['Athletic Cut', 'Rhythm Edit', 'Teal & Orange'],
-      description: 'Dynamic sports edit featuring speed ramp transitions, optical flow frame rate conversion, and deep contrast color grading.',
-      videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
+      duration: '',
+      views: '6.2M',
+      tags: ['Commercial', 'Editing', 'Karmanline'],
+      description: 'Production House: Karmanline | Director: Neal Massey | Editor: Arun Chelani',
+      videoUrl: 'https://drive.google.com/file/d/1kxcOaytPB4tdwNiqZdMm3y2nhi6aBQYr/preview',
       specs: {
         resolution: '4K DCI',
-        fps: '60 fps',
-        software: ['DaVinci Resolve', 'After Effects'],
-        turnaround: '2 Days'
+        fps: '24 fps',
+        software: ['Premiere Pro', 'DaVinci Resolve'],
+        turnaround: 'Master Cut'
       }
     },
     {
       id: 'proj-7',
-      title: 'Tech Essay 01 — AI Future Documentary',
-      category: 'youtube',
-      client: 'Veritas Media (2M Subs)',
+      title: 'Nescafe Cold Coffee',
+      category: 'commercials',
+      client: 'StudioFry | Dir: Devang Singh',
       image: 'assets/images/placeholder_white.svg',
-      duration: '15:20',
-      views: '6.7M',
-      tags: ['64% Retention', 'HUD Graphics', 'Documentary'],
-      description: 'High-retention tech essay video with custom 3D callouts, animated kinetic captions, and seamless audio ducking.',
-      videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
+      duration: '',
+      views: '3.8M',
+      tags: ['Commercial', 'Editing', 'StudioFry'],
+      description: 'Production House: StudioFry | Director: Devang Singh | Editor: Arun Chelani',
+      videoUrl: 'https://drive.google.com/file/d/1d2uIcrs5bYiIjtei0ViP1BYL7nkbygyF/preview',
       specs: {
-        resolution: '4K UHD',
-        fps: '30 fps',
-        software: ['Premiere Pro', 'After Effects'],
-        turnaround: '4 Days'
+        resolution: '4K DCI',
+        fps: '24 fps',
+        software: ['Premiere Pro', 'DaVinci Resolve'],
+        turnaround: 'Master Cut'
       }
     },
     {
       id: 'proj-8',
-      title: 'Cyberpunk Spec Reel 2026 — Motion VFX Cut',
-      category: 'vfx',
-      client: 'CyberTech Studios',
+      title: 'Blinkit x Kriti Sanon',
+      category: 'commercials',
+      client: 'Dhindora Media | Dir: Kamal Teja',
       image: 'assets/images/placeholder_white.svg',
-      duration: '01:15',
-      views: '950K',
-      tags: ['3D Tracking', 'Element 3D', 'Sound FX'],
-      description: 'Futuristic VFX showreel cut incorporating 3D element compositing, glowing UI HUDs, and deep electronic sound design.',
-      videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4',
+      duration: '',
+      views: '8.1M',
+      tags: ['Commercial', 'Editing', 'Dhindora Media'],
+      description: 'Production House: Dhindora Media | Director: Kamal Teja | Editor: Arun Chelani',
+      videoUrl: 'https://drive.google.com/file/d/1YG7-PSaYMtqCPTRMYG6PHDoD3cgYW_eA/preview',
       specs: {
         resolution: '4K DCI',
         fps: '24 fps',
-        software: ['After Effects', 'Blender', 'Resolve'],
-        turnaround: '3 Days'
+        software: ['Premiere Pro', 'DaVinci Resolve'],
+        turnaround: 'Master Cut'
+      }
+    },
+    {
+      id: 'proj-9',
+      title: 'Mumbai Indians Anthem',
+      category: 'commercials',
+      client: 'StudioFry | Dir: Devang Singh',
+      image: 'assets/images/placeholder_white.svg',
+      duration: '02:14',
+      views: '12.4M',
+      tags: ['Anthem', 'Editing', 'StudioFry'],
+      description: 'Production House: StudioFry | Director: Devang Singh | Editor: Arun Chelani',
+      videoUrl: 'https://www.youtube.com/embed/wqGQIA5fYMY',
+      specs: {
+        resolution: '4K DCI',
+        fps: '24 fps',
+        software: ['Premiere Pro', 'DaVinci Resolve'],
+        turnaround: 'Master Cut'
+      }
+    },
+    {
+      id: 'proj-10',
+      title: 'Nescafe Classic',
+      category: 'commercials',
+      client: 'StudioFry | Dir: Devang Singh',
+      image: 'assets/images/placeholder_white.svg',
+      duration: '00:30',
+      views: '4.5M',
+      tags: ['Commercial', 'Editing', 'StudioFry'],
+      description: 'Production House: StudioFry | Director: Devang Singh | Editor: Arun Chelani',
+      videoUrl: 'https://drive.google.com/file/d/1ReVE2oY7LvM0jtTElmu2gG0Y-0GrJYDe/preview',
+      specs: {
+        resolution: '4K DCI',
+        fps: '24 fps',
+        software: ['Premiere Pro', 'DaVinci Resolve'],
+        turnaround: 'Master Cut'
+      }
+    },
+    {
+      id: 'proj-11',
+      title: 'Scapia Winter EP 5',
+      category: 'commercials',
+      client: 'StudioFry | Dir: Devang Singh',
+      image: 'assets/images/placeholder_white.svg',
+      duration: '',
+      views: '2.1M',
+      tags: ['Commercial', 'Editing', 'StudioFry'],
+      description: 'Production House: StudioFry | Director: Devang Singh | Editor: Arun Chelani',
+      videoUrl: 'https://drive.google.com/file/d/1Dip4VM3lt254ylgYYkd9kRifJzM_wM7D/preview',
+      specs: {
+        resolution: '4K DCI',
+        fps: '24 fps',
+        software: ['Premiere Pro', 'DaVinci Resolve'],
+        turnaround: 'Master Cut'
+      }
+    },
+    {
+      id: 'proj-12',
+      title: 'Impact Mints x Ranveer Singh',
+      category: 'commercials',
+      client: 'StudioFry | Dir: Devang Singh',
+      image: 'assets/images/placeholder_white.svg',
+      duration: '',
+      views: '9.3M',
+      tags: ['Commercial', 'Editing', 'StudioFry'],
+      description: 'Production House: StudioFry | Director: Devang Singh | Editor: Arun Chelani',
+      videoUrl: 'https://drive.google.com/file/d/1twwZU422o0oddh7se9Vy85aSFoMpl9TA/preview',
+      specs: {
+        resolution: '4K DCI',
+        fps: '24 fps',
+        software: ['Premiere Pro', 'DaVinci Resolve'],
+        turnaround: 'Master Cut'
+      }
+    },
+    {
+      id: 'proj-13',
+      title: 'Motorola x Rasha Thadani',
+      category: 'commercials',
+      client: 'Zulu Films | Dir: Llyod Bapista',
+      image: 'assets/images/placeholder_white.svg',
+      duration: '01:15',
+      views: '7.8M',
+      tags: ['Commercial', 'Editing', 'Zulu Films'],
+      description: 'Production House: Zulu Films | Director: Llyod Bapista | Editor: Arun Chelani',
+      videoUrl: 'https://drive.google.com/file/d/1gY5QShs-WkFkkR1OEx9jzGa52FWePwyb/preview',
+      specs: {
+        resolution: '4K DCI',
+        fps: '24 fps',
+        software: ['Premiere Pro', 'DaVinci Resolve'],
+        turnaround: 'Master Cut'
+      }
+    },
+    {
+      id: 'proj-14',
+      title: 'Aqualogica x Rebel Kid',
+      category: 'commercials',
+      client: 'Collectiveart | Dir: Neal Massey',
+      image: 'assets/images/placeholder_white.svg',
+      duration: '',
+      views: '4.2M',
+      tags: ['Commercial', 'Editing', 'Collectiveart'],
+      description: 'Production House: Collectiveart | Director: Neal Massey | Editor: Arun Chelani',
+      videoUrl: 'https://drive.google.com/file/d/1KH1Vsm9jd4yFTY-b2fLw_8ECBG265DzF/preview',
+      specs: {
+        resolution: '4K DCI',
+        fps: '24 fps',
+        software: ['Premiere Pro', 'DaVinci Resolve'],
+        turnaround: 'Master Cut'
+      }
+    },
+    {
+      id: 'proj-15',
+      title: 'Mahina',
+      category: 'commercials',
+      client: 'StudioFry | Dir: Devang Singh',
+      image: 'assets/images/placeholder_white.svg',
+      duration: '',
+      views: '1.6M',
+      tags: ['Music Video', 'Editing', 'StudioFry'],
+      description: 'Production House: StudioFry | Director: Devang Singh | Editor: Arun Chelani',
+      videoUrl: 'https://drive.google.com/file/d/1bj-DHALCM5nDvBeEJ5AH4w-7y8ZD2Y8H/preview',
+      specs: {
+        resolution: '4K DCI',
+        fps: '24 fps',
+        software: ['Premiere Pro', 'DaVinci Resolve'],
+        turnaround: 'Master Cut'
+      }
+    },
+    {
+      id: 'proj-16',
+      title: 'ONLY x Ananya Pandey',
+      category: 'commercials',
+      client: 'Yellow Elephant | Dir: Kirti',
+      image: 'assets/images/placeholder_white.svg',
+      duration: '00:30',
+      views: '11.5M',
+      tags: ['Commercial', 'Editing', 'Yellow Elephant'],
+      description: 'Production House: Yellow Elephant | Director: Kirti | Editor: Arun Chelani',
+      videoUrl: 'https://www.youtube.com/embed/TyBRUBeP_kE',
+      specs: {
+        resolution: '4K DCI',
+        fps: '24 fps',
+        software: ['Premiere Pro', 'DaVinci Resolve'],
+        turnaround: 'Master Cut'
       }
     }
   ]);

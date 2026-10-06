@@ -19,7 +19,9 @@
           <div class="video-thumbnail-box">
             <img [src]="project.image" [alt]="project.title" class="video-thumb-img">
             <div class="video-play-overlay">
-              <span class="duration-badge">{{ project.duration }}</span>
+              @if (project.duration) {
+                <span class="duration-badge">{{ project.duration }}</span>
+              }
               <div class="play-icon-corner">
                 <i class="fa-solid fa-play"></i>
               </div>

@@ -24,7 +24,7 @@ export class ContactComponent {
   }
 
   handleSendMessage() {
-    window.open("https://wa.me/917477294570?text=Hi%20Arun,%20I'd%20like%20to%20discuss%20a%20video%20editing%20project!", '_blank');
+    window.open("https://wa.me/917600416755?text=Hi%20Arun,%20I'd%20like%20to%20discuss%20a%20project!", '_blank');
   }
 
   setHover(state: boolean) {

@@ -54,8 +54,11 @@
 .modal-video-wrapper {
   position: relative;
   aspect-ratio: 16 / 9;
-  background: #000;
+  background: #000000;
+  overflow: hidden;
 }
+
+
 
 .modal-video,
 .modal-video-iframe {
@@ -64,5 +67,11 @@
   object-fit: cover;
   border: none;
   background: #000000;
+}
+
+/* Crop out Google Drive top header bar & pop-out button */
+.modal-video-iframe.gdrive-iframe {
+  height: calc(100% + 56px);
+  margin-top: -56px;
 }
 
