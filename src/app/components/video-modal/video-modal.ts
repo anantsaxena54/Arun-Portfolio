@@ -18,9 +18,7 @@ export class VideoModalComponent {
 
   @ViewChild('videoPlayer') set videoPlayerRef(ref: ElementRef<HTMLVideoElement> | undefined) {
     if (ref?.nativeElement) {
-      ref.nativeElement.play().catch(() => {
-        // Fallback for browser autoplay policies
-      });
+      ref.nativeElement.pause();
     }
   }
 
@@ -33,7 +31,7 @@ export class VideoModalComponent {
     return 'direct';
   });
 
-  // Sanitized resource URL for Vimeo / YouTube / Google Drive iframe embeds with autoplay
+  // Sanitized resource URL for Vimeo / YouTube / Google Drive iframe embeds (without autoplay)
   safeEmbedUrl = computed<SafeResourceUrl | null>(() => {
     const url = this.project()?.videoUrl || '';
     const type = this.videoType();
@@ -41,14 +39,14 @@ export class VideoModalComponent {
     if (type === 'gdrive') {
       const match = url.match(/\/file\/d\/([^\/]+)/);
       const fileId = match ? match[1] : '';
-      const embedUrl = fileId ? `https://drive.google.com/file/d/${fileId}/preview?autoplay=1` : url;
+      const embedUrl = fileId ? `https://drive.google.com/file/d/${fileId}/preview` : url;
       return this.sanitizer.bypassSecurityTrustResourceUrl(embedUrl);
     }
 
     if (type === 'vimeo') {
       const match = url.match(/vimeo\.com\/(?:video\/)?(\d+)/);
       const vimeoId = match ? match[1] : url.split('/').pop();
-      const embedUrl = `https://player.vimeo.com/video/${vimeoId}?autoplay=1&autopause=0&title=0&byline=0&portrait=0`;
+      const embedUrl = `https://player.vimeo.com/video/${vimeoId}?autoplay=0&autopause=0&title=0&byline=0&portrait=0`;
       return this.sanitizer.bypassSecurityTrustResourceUrl(embedUrl);
     }
 
@@ -61,7 +59,7 @@ export class VideoModalComponent {
       } else if (url.includes('/embed/')) {
         youtubeId = url.split('/embed/')[1]?.split('?')[0] || '';
       }
-      const embedUrl = `https://www.youtube.com/embed/${youtubeId}?autoplay=1&enablejsapi=1`;
+      const embedUrl = `https://www.youtube.com/embed/${youtubeId}?autoplay=0&enablejsapi=1`;
       return this.sanitizer.bypassSecurityTrustResourceUrl(embedUrl);
     }
 

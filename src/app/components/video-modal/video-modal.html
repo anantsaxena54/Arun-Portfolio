@@ -20,7 +20,7 @@
             [class.gdrive-iframe]="videoType() === 'gdrive'"
             frameborder="0" 
             sandbox="allow-scripts allow-same-origin allow-forms"
-            allow="autoplay; fullscreen; encrypted-media; gyroscope; accelerometer" 
+            allow="fullscreen; encrypted-media; gyroscope; accelerometer" 
             allowfullscreen>
           </iframe>
         } @else {
@@ -28,7 +28,6 @@
             #videoPlayer 
             [src]="project()?.videoUrl" 
             poster="assets/images/hero_editing_suite.jpg" 
-            autoplay 
             playsinline 
             controls 
             controlsList="nodownload noplaybackrate nopictureinpicture"
