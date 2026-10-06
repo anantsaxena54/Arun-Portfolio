@@ -75,3 +75,48 @@
   margin-top: -56px;
 }
 
+/* Mobile View Optimizations */
+@media (max-width: 768px) {
+  .modal-backdrop {
+    padding: 12px 8px;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(8px);
+  }
+
+  .modal-container {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.9);
+  }
+
+  .modal-header {
+    padding: 12px 14px;
+  }
+
+  .client-badge {
+    font-size: 11px;
+    letter-spacing: 0.05em;
+  }
+
+  .modal-header h3 {
+    font-size: 18px;
+    line-height: 1.15;
+  }
+
+  .close-btn {
+    font-size: 22px;
+    padding: 4px 8px;
+  }
+
+  .modal-video-wrapper {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+  }
+
+  .modal-video-iframe.gdrive-iframe {
+    height: calc(100% + 56px);
+    margin-top: -54px;
+  }
+}
+
