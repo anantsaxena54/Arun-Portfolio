@@ -1,41 +1,29 @@
 @if (project()) {
-  <div class="modal-backdrop" (click)="onClose()">
-    <div class="modal-container" (click)="$event.stopPropagation()">
-      <div class="modal-header">
-        <div class="modal-title-group">
-          <span class="client-badge">{{ project()?.client }}</span>
-          <h3>{{ project()?.title }}</h3>
-        </div>
-        <button class="close-btn" (click)="onClose()" aria-label="Close modal">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
+<div class="modal-backdrop" (click)="onClose()">
+  <div class="modal-container" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <div class="modal-title-group">
+        <span class="client-badge">{{ project()?.client }}</span>
+        <h3>{{ project()?.title }}</h3>
       </div>
+      <button class="close-btn" (click)="onClose()" aria-label="Close modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
 
-      <div class="modal-video-wrapper">
+    <div class="modal-video-wrapper">
 
-        @if (videoType() === 'vimeo' || videoType() === 'youtube' || videoType() === 'gdrive') {
-          <iframe 
-            [src]="safeEmbedUrl()" 
-            class="modal-video-iframe" 
-            [class.gdrive-iframe]="videoType() === 'gdrive'"
-            frameborder="0" 
-            sandbox="allow-scripts allow-same-origin allow-forms"
-            allow="fullscreen; encrypted-media; gyroscope; accelerometer" 
-            allowfullscreen>
-          </iframe>
-        } @else {
-          <video 
-            #videoPlayer 
-            [src]="project()?.videoUrl" 
-            poster="assets/images/hero_editing_suite.jpg" 
-            playsinline 
-            controls 
-            controlsList="nodownload noplaybackrate nopictureinpicture"
-            disablePictureInPicture
-            class="modal-video">
-          </video>
-        }
-      </div>
+      @if (videoType() === 'vimeo' || videoType() === 'youtube' || videoType() === 'gdrive') {
+      <iframe [src]="safeEmbedUrl()" class="modal-video-iframe" [class.gdrive-iframe]="videoType() === 'gdrive'"
+        frameborder="0" sandbox="allow-scripts allow-same-origin allow-forms"
+        allow="fullscreen; encrypted-media; gyroscope; accelerometer" allowfullscreen>
+      </iframe>
+      } @else {
+      <video #videoPlayer [src]="project()?.videoUrl" poster="assets/images/hero_editing_suite.jpg" playsinline controls
+        controlsList="nodownload noplaybackrate nopictureinpicture" disablePictureInPicture class="modal-video">
+      </video>
+      }
     </div>
   </div>
+</div>
 }

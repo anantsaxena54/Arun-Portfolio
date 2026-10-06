@@ -4,9 +4,12 @@
   left: 0;
   width: 100%;
   z-index: 1000;
-  padding: 32px 48px;
-  background: transparent;
+  padding: 24px 48px;
+  background: linear-gradient(180deg, rgba(var(--nav-rgb, 10, 10, 12), 0.88) 0%, rgba(var(--nav-rgb, 10, 10, 12), 0.5) 70%, rgba(var(--nav-rgb, 10, 10, 12), 0) 100%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   pointer-events: none;
+  transition: padding 0.3s ease;
 }
 
 .navbar-inner {
@@ -19,10 +22,11 @@
 
 .brand-logo {
   font-family: var(--font-family-display);
-  font-size: 32px;
+  font-size: 22px;
   letter-spacing: 0.05em;
   color: #FFFFFF;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .nav-links {
@@ -41,6 +45,23 @@
 
 @media (max-width: 768px) {
   .navbar-header {
-    padding: 20px 24px;
+    padding: 14px 16px;
+    background: rgba(var(--nav-rgb, 10, 10, 12), 0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .brand-logo {
+    font-size: 16px;
+    letter-spacing: 0.04em;
+  }
+
+  .nav-links {
+    gap: 16px;
+  }
+
+  .nav-link {
+    font-size: 13px;
   }
 }

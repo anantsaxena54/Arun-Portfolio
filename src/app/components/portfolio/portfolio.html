@@ -5,37 +5,42 @@
     <!-- Alternating Video Work Stack -->
     <div class="video-stack">
       @for (project of visibleProjects(); track project.id; let i = $index) {
-        <article [class]="'video-item-card reveal-on-scroll reveal-delay-' + ((i % 3) + 1)" (click)="onProjectClick(project)">
-          <div class="video-info-box">
-            <h3 class="video-item-title">{{ project.title }}</h3>
-            <p class="video-subtext-red">{{ project.description }}</p>
-
-            <div class="watch-project-link">
-              <span>WATCH PROJECT</span>
-              <i class="fa-solid fa-arrow-right"></i>
-            </div>
+      <article [class]="'video-item-card reveal-on-scroll reveal-delay-' + ((i % 3) + 1)"
+        (click)="onProjectClick(project)">
+        <div class="video-info-box">
+          <h3 class="video-item-title">{{ project.title }}</h3>
+          <div class="video-subtext-red">
+            @for (line of project.description.split('|'); track line) {
+              <span class="subtext-credit-line">{{ line.trim() }}</span>
+            }
           </div>
 
-          <div class="video-thumbnail-box">
-            <img [src]="project.image" [alt]="project.title" class="video-thumb-img">
-            <div class="video-play-overlay">
-              @if (project.duration) {
-                <span class="duration-badge">{{ project.duration }}</span>
-              }
-              <div class="play-icon-corner">
-                <i class="fa-solid fa-play"></i>
-              </div>
+          <div class="watch-project-link">
+            <span>WATCH PROJECT</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </div>
+
+        <div class="video-thumbnail-box">
+          <img [src]="project.image" [alt]="project.title" class="video-thumb-img">
+          <div class="video-play-overlay">
+            @if (project.duration) {
+            <span class="duration-badge">{{ project.duration }}</span>
+            }
+            <div class="play-icon-corner">
+              <i class="fa-solid fa-play"></i>
             </div>
           </div>
-        </article>
+        </div>
+      </article>
       }
     </div>
 
     <!-- Load More Action -->
     @if (hasMoreProjects()) {
-      <div class="load-more-wrapper">
-        <button class="load-more-btn" (click)="loadMore()">Load More</button>
-      </div>
+    <div class="load-more-wrapper">
+      <button class="load-more-btn" (click)="loadMore()">Load More</button>
+    </div>
     }
   </div>
 </section>
