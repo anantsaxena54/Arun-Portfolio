@@ -3,7 +3,6 @@
   <div class="modal-container" (click)="$event.stopPropagation()">
     <div class="modal-header">
       <div class="modal-title-group">
-        <span class="client-badge">{{ project()?.client }}</span>
         <h3>{{ project()?.title }}</h3>
       </div>
       <button class="close-btn" (click)="onClose()" aria-label="Close modal">
