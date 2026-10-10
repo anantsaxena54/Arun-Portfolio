@@ -1,4 +1,6 @@
 .portfolio-section {
+  position: relative;
+  z-index: 2;
   padding: 120px 0 80px;
   background: transparent;
 }
@@ -235,12 +237,12 @@
 
 @media (max-width: 768px) {
   .portfolio-section {
-    padding: 10px 0 40px;
-    margin-top: -30px;
+    padding: 60px 0 40px;
+    margin-top: 0;
   }
 
   .portfolio-main-title {
-    margin-bottom: 24px;
+    margin-bottom: 32px;
     font-size: clamp(36px, 9vw, 80px);
   }
 

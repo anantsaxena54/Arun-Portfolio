@@ -41,3 +41,11 @@ __screenshots__/
 # System files
 .DS_Store
 Thumbs.db
+
+# Large media files (videos and raw background GIF exceeding GitHub limits)
+/public/Videos/
+/public/assets/*.gif
+*.mp4
+*.mov
+*.m4v
+

@@ -5,11 +5,21 @@
   width: 100%;
   z-index: 1000;
   padding: 24px 48px;
-  background: linear-gradient(180deg, rgba(var(--nav-rgb, 10, 10, 12), 0.88) 0%, rgba(var(--nav-rgb, 10, 10, 12), 0.5) 70%, rgba(var(--nav-rgb, 10, 10, 12), 0) 100%);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.08) 60%, rgba(0, 0, 0, 0) 100%);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom: none;
   pointer-events: none;
-  transition: padding 0.3s ease;
+  transition: padding 0.35s ease, background 0.35s ease, backdrop-filter 0.35s ease, box-shadow 0.35s ease;
+}
+
+.navbar-header.scrolled {
+  padding: 16px 48px;
+  background: rgba(var(--nav-rgb, 10, 10, 12), 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.35);
 }
 
 .navbar-inner {
@@ -21,12 +31,22 @@
 }
 
 .brand-logo {
-  font-family: var(--font-family-display);
-  font-size: 22px;
-  letter-spacing: 0.05em;
-  color: #FFFFFF;
-  text-transform: uppercase;
-  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.brand-logo-img {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.7));
+  transition: transform 0.2s ease;
+}
+
+.brand-logo:hover .brand-logo-img {
+  transform: scale(1.05);
 }
 
 .nav-links {
@@ -41,20 +61,33 @@
   font-weight: 500;
   color: #FFFFFF;
   letter-spacing: 0.02em;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+  transition: opacity 0.2s ease;
+}
+
+.nav-link:hover {
+  opacity: 0.75;
 }
 
 @media (max-width: 768px) {
   .navbar-header {
-    padding: 14px 16px;
+    padding: 16px 20px;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0) 100%);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-bottom: none;
+  }
+
+  .navbar-header.scrolled {
+    padding: 12px 20px;
     background: rgba(var(--nav-rgb, 10, 10, 12), 0.92);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
 
-  .brand-logo {
-    font-size: 16px;
-    letter-spacing: 0.04em;
+  .brand-logo-img {
+    height: 36px;
   }
 
   .nav-links {

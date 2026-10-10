@@ -1,4 +1,4 @@
-import { Component, input, output, signal, computed, inject, ElementRef, ViewChild } from '@angular/core';
+import { Component, input, output, signal, computed, inject, ElementRef, ViewChild, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ProjectItem } from '../portfolio/portfolio';
@@ -19,6 +19,13 @@ export class VideoModalComponent {
   @ViewChild('videoPlayer') set videoPlayerRef(ref: ElementRef<HTMLVideoElement> | undefined) {
     if (ref?.nativeElement) {
       ref.nativeElement.pause();
+    }
+  }
+
+  @HostListener('window:keydown.escape')
+  onEscapeKey() {
+    if (this.project()) {
+      this.onClose();
     }
   }
 

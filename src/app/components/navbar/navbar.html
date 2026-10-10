@@ -1,6 +1,8 @@
-<header class="navbar-header" [style.--nav-rgb]="rgbValues()">
+<header class="navbar-header" [class.scrolled]="isScrolled()" [style.--nav-rgb]="rgbValues()">
   <div class="navbar-inner">
-    <a href="#" class="brand-logo">ADCUT STUDIOS</a>
+    <a href="#" class="brand-logo" aria-label="ADCUT STUDIOS">
+      <img src="assets/ADCUT FEVICON.png" alt="ADCUT STUDIOS Logo" class="brand-logo-img">
+    </a>
 
     <nav class="nav-links">
       <a href="#work" class="nav-link">Work</a>

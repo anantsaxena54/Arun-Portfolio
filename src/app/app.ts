@@ -167,7 +167,7 @@ export class App implements AfterViewInit, OnDestroy {
     views: '250K+',
     tags: ['4K DCI', 'Speed Ramps', 'Color Grading', 'Sound Design'],
     description: 'The 2026 Master Editorial Showreel showcasing high-impact commercial cuts, music videos, 3D motion graphics, and color grading.',
-    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
+    videoUrl: 'Videos/Pataal Lok Season 2 Teaser.mp4',
     specs: {
       resolution: '4K DCI Anamorphic',
       fps: '23.976 / 60 / 120 fps',

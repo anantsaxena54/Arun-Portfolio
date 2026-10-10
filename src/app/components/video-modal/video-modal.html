@@ -19,7 +19,7 @@
         allow="fullscreen; encrypted-media; gyroscope; accelerometer" allowfullscreen>
       </iframe>
       } @else {
-      <video #videoPlayer [src]="project()?.videoUrl" poster="assets/images/hero_editing_suite.jpg" playsinline controls
+      <video #videoPlayer [src]="project()?.videoUrl" playsinline controls preload="metadata"
         controlsList="nodownload noplaybackrate nopictureinpicture" disablePictureInPicture class="modal-video">
       </video>
       }

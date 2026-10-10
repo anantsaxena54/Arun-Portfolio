@@ -3,23 +3,9 @@
   background-color: transparent;
 }
 
-.about-grid {
-  display: grid;
-  grid-template-columns: minmax(300px, 420px) 1fr;
-  gap: 64px;
-  align-items: center;
-}
-
-.portrait-column {
-  width: 100%;
-}
-
-.portrait-img {
-  width: 100%;
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
-  filter: grayscale(100%) contrast(1.1);
-  border-radius: 2px;
+.about-content {
+  max-width: 920px;
+  margin: 0 auto;
 }
 
 .bio-column {
@@ -114,15 +100,6 @@
   color: #FFFFFF;
 }
 
-@media (max-width: 1024px) {
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-  .expertise-column {
-    padding-left: 0;
-  }
-}
 
 @media (max-width: 768px) {
   .about-section {
